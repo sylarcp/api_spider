@@ -2,6 +2,7 @@ import requests
 import pyPdf
 import os
 keywords = 'is searchable'
+# get the comment by id.
 def getComment(id):
     url = "https://www.regulations.gov/dispatch/LoadDocumentDetail"
     data = '7|0|10|https://www.regulations.gov/Regs/|0EF855B0393EDDE0CF6CB49F76BDE4E0|com.gwtplatform.dispatch.rpc.shared.DispatchService|execute|java.lang.String/2004016611|com.gwtplatform.dispatch.rpc.shared.Action|6uLBCdyj2ElcnHkMBymQky7A|gov.egov.erule.regs.shared.action.LoadDocumentDetailAction/3833214929|d|EPA-HQ-OAR-2013-0602-' + str(id) +'|1|2|3|4|2|5|6|7|8|9|10|'
@@ -31,6 +32,7 @@ def getComment(id):
         if keywords in result:
             foundIt = 'Yes'
     print foundIt
+# will pull the PDF file from api and save it in the current folder. Then convert it into text output. 
 def getPDF(id):
     for num in range(1,3):
         print '=========================================================================='
